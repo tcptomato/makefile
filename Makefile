@@ -39,7 +39,7 @@ silent:
 
 $(TARGET): $(OBJS)
 	@echo Linking
-	@$(CCXX) $(LD_FLAGS) $(LIBRARY_PATH) $(LIBRARY) -o $(TARGET) $^
+	@$(CCXX) $(LD_FLAGS) $(LIBRARY_PATH) -o $(TARGET) $^ $(LIBRARY)
 
 #create output directory if it doesn't exist		
 #generate dependency file for current file
