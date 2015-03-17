@@ -23,10 +23,14 @@ LD_FLAGS =
 OBJECTS = $(patsubst %.c, %.o, $(C_SRC))
 OBJECTS += $(patsubst %.cpp, %.o, $(CPP_SRC))
 
+RAMDISK_DIR = /mnt/ramdisk
+# make ramdisj target creates and mounts a tempfs drive
+#OBJ_DIR = $(RAMDISK_DIR)/objs
 OBJ_DIR = objs
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJECTS))
 DEPS = $(patsubst %.o, %.o.d, $(OBJS))
+
 
 all: $(TARGET) silent
 
@@ -85,4 +89,9 @@ test:
 run: all
 	@./$(TARGET)
 
-.PHONY: test deploy all
+ramdisk:
+	sudo mkdir $(RAMDISK_DIR)
+	sudo mount -t tmpfs -o size=512m tmpfs $(RAMDISK_DIR)
+
+
+.PHONY: test deploy all ramdisk
