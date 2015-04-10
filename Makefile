@@ -75,6 +75,9 @@ clean:
 	@echo Removing target
 	@rm -f $(TARGET)
 
+print-%: ; @echo $*=$($*)
+
+	
 test:
 	@echo  $(@D)
 	@echo  $(DEPS)
