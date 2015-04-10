@@ -75,9 +75,10 @@ clean:
 	@echo Removing target
 	@rm -f $(TARGET)
 
+#http://blog.jgc.org/2015/04/the-one-line-you-should-add-to-every.html
 print-%: ; @echo $*=$($*)
 
-	
+
 test:
 	@echo  $(@D)
 	@echo  $(DEPS)
