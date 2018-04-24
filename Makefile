@@ -10,11 +10,13 @@ INCLUDE_PATH := -I.
 LIBRARY_PATH := -L.
 
 CC = gcc
-CC_FLAGS = -Wall -O3
+CC_FLAGS = -Wall -O3 -Wextra -Wpedantic
 CCXX = g++
-CCXX_FLAGS = -Wall -O3
+CCXX_FLAGS = -Wall -O3 -Wextra -Wpedantic
 
-LIBRARY := 
+LIBRARY :=
+
+LD = ld
 LD_FLAGS = 
 
 #include makefile fragments in subdirectories if they exist
